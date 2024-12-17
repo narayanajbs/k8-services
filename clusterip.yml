@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: roboshop
+
+---
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: clusterip
+  namespace: roboshop
+  lables:
+    app: nginx
+    demo: service
+spec:
+  containers:
+    - name: nginx-pod
+      image: nginx
+      ports:
+      - containerPort: 80
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluserip-service
+  namespace: roboshop
+spec:
+  selector:
+    app: nginx
+    demo: service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: clusterIP
