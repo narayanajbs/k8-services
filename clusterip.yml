@@ -9,7 +9,7 @@ kind: Pod
 metadata:
   name: clusterip
   namespace: roboshop
-  lables:
+  labels:
     app: nginx
     demo: service
 spec:
@@ -32,4 +32,4 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: clusterIP
+ # type: clusterIP
